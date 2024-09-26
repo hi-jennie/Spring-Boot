@@ -36,9 +36,21 @@ public class Main {
         customerRepository.save(customer);
     }
 
+
+
     @DeleteMapping("/{customerId}")
     public void deleteCustomer(@PathVariable("customerId") Integer id) {
         customerRepository.deleteById(id);
+    }
+
+    @PutMapping("/{customerId}")
+    public void updateCustomer(@PathVariable("customerId") Integer id, @RequestBody NewCustomerRequest request) {
+        // .orElseThrow() 防止返回 null 导致的空指针异常。如果记录不存在，它会抛出异常。
+        Customer customer = customerRepository.findById(id).orElseThrow();
+        customer.setAge(request.age());
+        customer.setName(request.name());
+        customer.setEmail(request.email());
+        customerRepository.save(customer);
     }
 
     /*
