@@ -15,7 +15,8 @@ public class Customer {
     @Id
     // This annotation defines a sequence generator that specifies details about the sequence
     @SequenceGenerator(name = "customer_id_sequence",
-            sequenceName = "customer_id_sequence"
+            sequenceName = "customer_id_sequence",
+            allocationSize = 1
             )
     // This annotation specifies that the value of id will be generated automatically, rather than being set manually
     @GeneratedValue(
