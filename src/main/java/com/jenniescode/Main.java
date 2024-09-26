@@ -41,8 +41,6 @@ public class Main {
         customerRepository.deleteById(id);
     }
 
-
-
     /*
     @GetMapping("/greeting")
     public GreetResponse greeting() {
